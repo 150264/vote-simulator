@@ -13,4 +13,5 @@ e funzioni di scelta collettiva.
   - Borda
   - Coombs
 
-
+## Link 
+https://150264.github.io/vote-simulator/
