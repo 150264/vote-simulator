@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulatore di voto</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Simulatore di voto</h1>
+      <p class="muted">Crea una votazione, inserisci le classifiche dei votanti e confronta i metodi.</p>
+    </header>
+
+    <!-- SETUP ELEZIONE -->
+    <section class="card">
+      <h2>1) Crea votazione</h2>
+
+      <div class="grid">
+        <label>
+          Titolo votazione
+          <input id="titleInput" placeholder="Es. Elezione rappresentante" />
+        </label>
+
+        <label>
+          Nuova alternativa
+          <div class="row">
+            <input id="optionInput" placeholder="Es. A" />
+            <button id="addOptionBtn" type="button">Aggiungi</button>
+          </div>
+        </label>
+      </div>
+
+      <div class="chips" id="optionsChips"></div>
+
+      <div class="row row-spaced">
+        <button id="resetBtn" type="button" class="danger">Reset</button>
+        <button id="saveBtn" type="button">Salva</button>
+      </div>
+
+      <p class="hint">Nota: per usare i metodi a classifica, ogni votante deve ordinare <b>tutte</b> le alternative.</p>
+    </section>
+
+    <!-- VOTANTI -->
+    <section class="card">
+      <h2>2) Votanti e preferenze (A &gt; B &gt; C)</h2>
+
+      <div class="row">
+        <button id="addVoterBtn" type="button">+ Aggiungi votante</button>
+      </div>
+
+      <div id="votersWrap" class="voters"></div>
+    </section>
+
+    <!-- RISULTATI -->
+    <section class="card">
+      <h2>3) Risultati</h2>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="majority">Maggioranza + ballottaggio</button>
+        <button class="tab" data-tab="condorcet">Condorcet + Schulze</button>
+        <button class="tab" data-tab="irv">Voto alternativo (IRV)</button>
+        <button class="tab" data-tab="borda">Borda</button>
+        <button class="tab" data-tab="coombs">Coombs</button>
+        <button class="tab" data-tab="theory">Principi</button>
+      </div>
+
+      <div id="tab-majority" class="tabpane"></div>
+      <div id="tab-condorcet" class="tabpane hidden"></div>
+      <div id="tab-irv" class="tabpane hidden"></div>
+      <div id="tab-borda" class="tabpane hidden"></div>
+      <div id="tab-coombs" class="tabpane hidden"></div>
+      <div id="tab-theory" class="tabpane hidden"></div>
+    </section>
+
+    <footer class="footer muted">
+      <span>Salvataggio locale: localStorage • Deploy: GitHub Pages</span>
+    </footer>
+  </main>
+
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
